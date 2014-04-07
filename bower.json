@@ -1,0 +1,21 @@
+{
+  "name": "angular-div-scroll-spy",
+  "version": "0.1",
+  "homepage": "https://github.com/FedericoElles/angular-div-scroll-spy",
+  "authors": [
+    "FedericoElles"
+  ],
+  "description": "Based on Angular-Scrollspy, this Reversion allows it to spy inside scrollable elements",
+  "main": "angular-div-scroll-spy.js",
+  "keywords": [
+    "angularjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
