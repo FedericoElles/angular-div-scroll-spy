@@ -29,7 +29,11 @@ angular.module('AngularDivScrollSpy', [])
       //if the scroll-spy element and the scrollable div are not the same, specify the name
       //inside the attribute: scroll-spy="<id of scrollable element>"
       if (attrs.scrollSpy.length > 0){
-        spyContainer = angular.element(document.getElementById(attrs.scrollSpy));
+        if (attrs.scrollSpy === 'child'){
+          spyContainer = angular.element(elem.children()[0]);
+        } else {
+          spyContainer = angular.element(document.getElementById(attrs.scrollSpy));
+        }
       }
       
       spyElems = [];
