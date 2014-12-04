@@ -25,7 +25,15 @@ angular.module('AngularDivScrollSpy', [])
     link: function(scope, elem, attrs) {
       var spyElems;
       var spyContainer = elem;
-      
+      var offset = 0;
+      if (attrs.scrollOffset){
+        offset = parseInt(attrs.scrollOffset, 10);
+        if (isNaN(offset)){
+          offset = 0;
+        }
+      }
+
+    
       //if the scroll-spy element and the scrollable div are not the same, specify the name
       //inside the attribute: scroll-spy="<id of scrollable element>"
       if (attrs.scrollSpy.length > 0){
@@ -63,7 +71,7 @@ angular.module('AngularDivScrollSpy', [])
           spy.out();
           spyElems[spy.id] = spyElems[spy.id].length === 0 ? spyContainer.find('#' + spy.id) : spyElems[spy.id];
           if (spyElems[spy.id].length !== 0) {
-            if ((pos = spyElems[spy.id][0].offsetTop) - $(spyContainer).scrollTop() <= 0) { //$window.scrollY //.offset().top 
+            if ((pos = spyElems[spy.id][0].offsetTop) - $(spyContainer).scrollTop() + offset <= 0) { //$window.scrollY //.offset().top 
               spy.pos = pos;
               
               if (highlightSpy == null) {
